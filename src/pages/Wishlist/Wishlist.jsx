@@ -12,7 +12,7 @@ const Wishlist = () => {
     );
     // console.log("Response:", response);
     // console.log("Response data:", response.data);
-    return response.data.data.product; // Access the product data
+    return response.data.data.product;
   };
 
   useEffect(() => {
@@ -43,18 +43,20 @@ const Wishlist = () => {
   return (
     <div className="mx-10 my-5">
       <h2 className="text-2xl font-bold mb-4 text-center my-5">
-        {wishlist.length > 0 ? "Your Wishlist" : ""}
+        {wishlist.length > 0 ? "Item favorit Kamu" : ""}
       </h2>
       {wishlist.length > 0 ? (
-        <div className="grid grid-cols-4 gap-4 justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center">
           {wishlist.map((product) => (
             <ProductComponent key={product._id} product={product} />
           ))}
         </div>
       ) : (
         <div className="hero-section text-gray-600 text-center py-20 rounded-lg">
-          <h2 className="text-4xl mb-4">You didn&apos;t add any wishlist</h2>
-          <p className="text-xl">Start adding products to your wishlist now!</p>
+          <h1 className="text-4xl mb-4">Kamu belum menambahkan item Favorit</h1>
+          <p className="text-xl">
+            Temukan produk yang kamu suka dan tambahkan ke favorit, yuk!
+          </p>
         </div>
       )}
     </div>

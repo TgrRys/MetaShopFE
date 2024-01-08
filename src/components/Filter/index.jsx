@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
@@ -11,22 +11,9 @@ import { CardProduct } from "../Card/CardProduct";
 import { ProductContext } from "../../contexts/ProductContext";
 
 const sortOptions = [
-  { name: "Paling Populer", href: "#", current: true },
-  { name: "Paling Terbaru", href: "#", current: false },
-  { name: "Harga: Rendah Ke Tinggi", href: "#", current: false },
-  { name: "Harga: Tinggi Ke Rendah", href: "#", current: false },
-];
-
-const filters = [
-  {
-    id: "category",
-    name: "Kategori",
-    options: [
-      { value: "man", label: "Pria", checked: false },
-      { value: "women", label: "Wanita", checked: false },
-      { value: "kids", label: "Anak - anak", checked: true },
-    ],
-  },
+  { name: "Paling Terbaru", value: "newest", current: true },
+  { name: "Harga: Rendah Ke Tinggi", value: "lowest", current: false },
+  { name: "Harga: Tinggi Ke Rendah", value: "highest", current: false },
 ];
 
 function classNames(...classes) {
@@ -37,11 +24,63 @@ export default function Filter() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const { searchProducts } = useContext(ProductContext);
+  const [sortOption, setSortOption] = useState("");
+  const [selectedSortOptionName, setSelectedSortOptionName] =
+    useState("Sort by");
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    searchProducts(searchTerm);
+    console.log(sortOption);
+    searchProducts(searchTerm, sortOption);
   };
+
+  const [filters, setFilters] = useState([
+    {
+      id: "category",
+      name: "Kategori",
+      options: [
+        { value: "Pria", label: "Pria", checked: false },
+        { value: "Wanita", label: "Wanita", checked: false },
+        { value: "Anak-anak", label: "Anak - anak", checked: false },
+      ],
+    },
+  ]);
+
+  const handleFilterChange = (sectionId, optionIdx, checked) => {
+    // Update the checked status of the relevant filter option
+    setFilters((prevFilters) => {
+      const newFilters = prevFilters.map((section) => {
+        if (section.id === sectionId) {
+          return {
+            ...section,
+            options: section.options.map((option, idx) => {
+              if (idx === optionIdx) {
+                return { ...option, checked };
+              }
+              return option;
+            }),
+          };
+        }
+        return section;
+      });
+
+      // Find the selected category
+      const selectedCategory = newFilters
+        .find((section) => section.id === "category")
+        .options.find((option) => option.checked)?.value;
+
+      // Call searchProducts with the selected category
+      searchProducts(searchTerm, sortOption, selectedCategory);
+
+      return newFilters;
+    });
+  };
+
+  useEffect(() => {
+    if (sortOption) {
+      searchProducts(searchTerm, sortOption);
+    }
+  }, [sortOption]);
 
   return (
     <div className="bg-white">
@@ -51,25 +90,30 @@ export default function Filter() {
             className="mx-auto mt-8 relative min-w-sm max-w-xl flex flex-col md:flex-row items-center justify-center py-2 px-2 rounded-sm gap-2"
             htmlFor="search-bar"
           >
+            <svg
+              width="20"
+              height="20"
+              fill="currentColor"
+              className="text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2 mx-2"
+              aria-hidden="true"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+              />
+            </svg>
             <input
               id="search-bar"
-              placeholder="your keyword here"
+              placeholder="cari product yang anda inginkan"
               name="q"
-              className="px-6 py-2 w-full rounded-md flex-1 outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+              className="focus:ring-2 focus:ring-emerald-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-400 shadow-sm"
+              type="text"
+              aria-label="Filter projects"
               required=""
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <button
-              type="submit"
-              className="w-full md:w-auto px-6 py-3 bg-black border-black text-white fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all"
-            >
-              <div className="flex items-center transition-all opacity-1">
-                <span className="text-sm font-semibold whitespace-nowrap truncate mx-auto">
-                  Search
-                </span>
-              </div>
-            </button>
           </label>
         </form>
 
@@ -192,10 +236,10 @@ export default function Filter() {
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
-                  <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-                    Urutkan
+                  <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+                    {selectedSortOptionName} {/* Use the state here */}
                     <ChevronDownIcon
-                      className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                      className="-mr-1 ml-2 h-5 w-5"
                       aria-hidden="true"
                     />
                   </Menu.Button>
@@ -210,20 +254,49 @@ export default function Filter() {
                   leaveFrom="transform opacity-100 scale-100"
                   leaveTo="transform opacity-0 scale-95"
                 >
-                  <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  {/* <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <div className="py-1">
                       {sortOptions.map((option) => (
                         <Menu.Item key={option.name}>
                           {({ active }) => (
                             <a
-                              href={option.href}
+                              href="#"
                               className={classNames(
-                                option.current
-                                  ? "font-medium text-gray-900"
-                                  : "text-gray-500",
-                                active ? "bg-gray-100" : "",
+                                active
+                                  ? "bg-gray-100 text-gray-900"
+                                  : "text-gray-700",
                                 "block px-4 py-2 text-sm",
                               )}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setSortOption(option.value);
+                              }}
+                            >
+                              {option.name}
+                            </a>
+                          )}
+                        </Menu.Item>
+                      ))}
+                    </div>
+                  </Menu.Items> */}
+                  <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <div className="py-1">
+                      {sortOptions.map((option) => (
+                        <Menu.Item key={option.name}>
+                          {({ active }) => (
+                            <a
+                              href="#"
+                              className={classNames(
+                                active
+                                  ? "bg-gray-100 text-gray-900"
+                                  : "text-gray-700",
+                                "block px-4 py-2 text-sm",
+                              )}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setSortOption(option.value);
+                                setSelectedSortOptionName(option.name); // Set the name here
+                              }}
                             >
                               {option.name}
                             </a>
@@ -292,6 +365,13 @@ export default function Filter() {
                                   type="checkbox"
                                   defaultChecked={option.checked}
                                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                  onChange={(e) =>
+                                    handleFilterChange(
+                                      section.id,
+                                      optionIdx,
+                                      e.target.checked,
+                                    )
+                                  }
                                 />
                                 <label
                                   htmlFor={`filter-${section.id}-${optionIdx}`}
@@ -319,4 +399,51 @@ export default function Filter() {
       </div>
     </div>
   );
+}
+
+{
+  /* <Menu as="div" className="relative inline-block text-left">
+                <div>
+                  <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                    Urutkan
+                    <ChevronDownIcon
+                      className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                      aria-hidden="true"
+                    />
+                  </Menu.Button>
+                </div>
+
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <div className="py-1">
+                      {sortOptions.map((option) => (
+                        <Menu.Item key={option.name}>
+                          {({ active }) => (
+                            <a
+                              href={option.href}
+                              className={classNames(
+                                option.current
+                                  ? "font-medium text-gray-900"
+                                  : "text-gray-500",
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm",
+                              )}
+                            >
+                              {option.name}
+                            </a>
+                          )}
+                        </Menu.Item>
+                      ))}
+                    </div>
+                  </Menu.Items>
+                </Transition>
+              </Menu> */
 }

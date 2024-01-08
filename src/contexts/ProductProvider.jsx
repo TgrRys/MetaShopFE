@@ -17,11 +17,25 @@ export const ProductProvider = ({ children }) => {
     }
   };
 
-  const searchProducts = async (searchTerm) => {
+  const searchProducts = async (searchTerm, sortOption, category) => {
     try {
-      const response = await axios.get(
-        `http://localhost:5000/products?search=${searchTerm}`,
-      );
+      let url = `http://localhost:5000/products?`;
+
+      if (searchTerm) {
+        url += `search=${searchTerm}`;
+      }
+
+      if (sortOption) {
+        url += searchTerm ? `&sort=${sortOption}` : `sort=${sortOption}`;
+      }
+
+      // Add category to the query parameters
+      if (category) {
+        url += `&category=${category}`;
+      }
+
+      console.log(url);
+      const response = await axios.get(url);
       setProducts(response.data.data.products);
     } catch (error) {
       console.error("Failed to fetch products", error);

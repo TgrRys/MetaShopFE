@@ -34,18 +34,18 @@ function FAQ() {
         <div className="bg-white p-5 sm:p-10 shadow-sm rounded-xl">
           <div className="">
             <h1 className="font-extrabold text-gray-800 text-2xl ml-5">FAQ&apos;s</h1>
-            <div className="h-1 bg-blue-500 rounded-full w-1/6"></div>
+            <div className="h-1 bg-emerald-500 rounded-full w-1/6"></div>
           </div>
           <div className="mt-14 ml-4 sm:ml-24">
             {faqs.map((faq, index) => (
               <div key={index} className="transition">
                 <div className="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16" onClick={() => handleClick(index)}>
-                  <FontAwesomeIcon icon={activeIndex === index ? faMinus : faPlus} className="text-blue-700" />
+                  <FontAwesomeIcon icon={activeIndex === index ? faMinus : faPlus} className="text-emerald-700" />
                   <h2 className="text-gray-700 font-semibold">{faq.question}</h2>
                 </div>
                 <div className={`accordion-content px-5 pt-0 overflow-hidden ${activeIndex === index ? 'max-h-screen' : 'max-h-0'} space-y-4 mr-4 text-sm`}>
                   <div className="flex flex-row ml-8 py-4">
-                    <div className="flex w-1 bg-gradient-to-t from-blue-500 to-blue-400"></div>
+                    <div className="flex w-1 bg-gradient-to-t from-emerald-500 to-emerald-400"></div>
                     <div className="flex-1 p-3">
                       <p className="pl-2 sm:pl-4 text-justify">{faq.answer}</p>
                     </div>

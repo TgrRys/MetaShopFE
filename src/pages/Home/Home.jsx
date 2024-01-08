@@ -6,171 +6,190 @@ const Home = () => {
   return (
     <div>
       <HeroSection />
-        <div className="flex justify-center items-center">
-          <div className="2xl:mx-auto 2xl:container py-12 px-4 sm:px-6 xl:px-20 2xl:px-0 w-full">
-            <div className="flex flex-col jusitfy-center items-center space-y-10">
-              <h1 className="font-bold text-5xl">Product Categories</h1>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 md:gap-x-8 w-full">
+      <div className="flex justify-center items-center">
+        <div className="2xl:mx-auto 2xl:container py-12 px-4 sm:px-6 xl:px-20 2xl:px-0 w-full">
+          <div className="flex flex-col jusitfy-center items-center space-y-10">
+            <h1 className="font-bold text-5xl">Product Categories</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 md:gap-x-8 w-full">
+              <div className="relative group flex justify-center items-center h-full w-full">
+                <img
+                  className="object-center object-cover h-full w-full"
+                  src="https://images.unsplash.com/photo-1588117260148-b47818741c74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+                  alt="Photo by Mike Von on Unsplash"
+                />
+                <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 rounded py-3 w-36 bg-gray-200">
+                  Women&apos;s
+                </button>
+                <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-white bg-opacity-50"></div>
+              </div>
+              <div className="flex flex-col space-y-4 md:space-y-8 mt-4 md:mt-0">
                 <div className="relative group flex justify-center items-center h-full w-full">
                   <img
                     className="object-center object-cover h-full w-full"
-                    src="https://images.unsplash.com/photo-1588117260148-b47818741c74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                    alt="Photo by Mike Von on Unsplash"
+                    src="https://images.unsplash.com/photo-1527289631404-6b929d0a126f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGtpZCUyMG5pa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=80"
+                    alt="Kid image"
                   />
-                  <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 rounded py-3 w-36 bg-gray-200">
-                    Women&apos;s
+                  <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-gray-200 rounded">
+                    Kids&apos;
                   </button>
                   <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-white bg-opacity-50"></div>
                 </div>
-                <div className="flex flex-col space-y-4 md:space-y-8 mt-4 md:mt-0">
-                  <div className="relative group flex justify-center items-center h-full w-full">
-                    <img
-                      className="object-center object-cover h-full w-full"
-                      src="https://images.unsplash.com/photo-1527289631404-6b929d0a126f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGtpZCUyMG5pa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=80"
-                      alt="Kid image"
-                    />
-                    <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-gray-200 rounded">
-                      Kids&apos;
-                    </button>
-                    <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-white bg-opacity-50"></div>
-                  </div>
-                  <div className="relative group flex justify-center items-center h-full w-full">
-                    <img
-                      className="object-center object-cover h-full w-full"
-                      src="https://image.made-in-china.com/202f0j00oJqlmrCjwszH/Custom-Men-Women-Kids-Tracksuit-Solid-Matching-Family-Clothes.jpg"
-                      alt="watch-image"
-                    />
-                    <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 rounded bg-gray-200">
-                      ALL PRODUCTS
-                    </button>
-                    <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-gray-200 bg-opacity-50"></div>
-                  </div>
-                </div>
-                <div className="relative group justify-center items-center h-full w-full hidden lg:flex">
+                <div className="relative group flex justify-center items-center h-full w-full">
                   <img
                     className="object-center object-cover h-full w-full"
-                    src="https://i.pinimg.com/236x/80/33/18/803318ed61b44f69843712e17f7a72ac.jpg"
-                    alt="Photo by Tyrell James on Unsplash"
+                    src="https://image.made-in-china.com/202f0j00oJqlmrCjwszH/Custom-Men-Women-Kids-Tracksuit-Solid-Matching-Family-Clothes.jpg"
+                    alt="watch-image"
                   />
-                  <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-gray-200 rounded-lg">
-                    Men&apos;s
+                  <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 rounded bg-gray-200">
+                    ALL PRODUCTS
                   </button>
-                  <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-gray-200 rounded-lg bg-opacity-50"></div>
-                </div>
-                <div className="relative group flex justify-center items-center h-full w-full mt-4 md:hidden md:mt-8 lg:hidden">
-                  <img
-                    className="object-center object-cover h-full w-full hidden md:block"
-                    src="https://i.pinimg.com/236x/80/33/18/803318ed61b44f69843712e17f7a72ac.jpg"
-                    alt="Photo by Tyrell James on Unsplash"
-                  />
-                  <img
-                    className="object-center object-cover h-full w-full md:hidden"
-                    src="https://images.unsplash.com/photo-1606106040060-3c4322aaecda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                    alt="olive-tatiane-Im-Ez-F9-B91-Mk-unsplash-2"
-                  />
-                  <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-gray-200 rounded-lg">
-                    Men&apos; s
-                  </button>
-                  <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-white bg-opacity-50"></div>
+                  <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-gray-200 bg-opacity-50"></div>
                 </div>
               </div>
-              <div className="relative group hidden md:flex justify-center items-center h-full w-full mt-4 md:mt-8 lg:hidden">
+              <div className="relative group justify-center items-center h-full w-full hidden lg:flex">
+                <img
+                  className="object-center object-cover h-full w-full"
+                  src="https://i.pinimg.com/236x/80/33/18/803318ed61b44f69843712e17f7a72ac.jpg"
+                  alt="Photo by Tyrell James on Unsplash"
+                />
+                <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-gray-200 rounded-lg">
+                  Men&apos;s
+                </button>
+                <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-gray-200 rounded-lg bg-opacity-50"></div>
+              </div>
+              <div className="relative group flex justify-center items-center h-full w-full mt-4 md:hidden md:mt-8 lg:hidden">
                 <img
                   className="object-center object-cover h-full w-full hidden md:block"
-                  src="https://images.unsplash.com/photo-1606105961732-6332674f4ee6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                  src="https://i.pinimg.com/236x/80/33/18/803318ed61b44f69843712e17f7a72ac.jpg"
                   alt="Photo by Tyrell James on Unsplash"
                 />
                 <img
-                  className="object-center object-cover h-full w-full sm:hidden"
-                  src="https://i.pinimg.com/236x/80/33/18/803318ed61b44f69843712e17f7a72ac.jpg"
+                  className="object-center object-cover h-full w-full md:hidden"
+                  src="https://images.unsplash.com/photo-1606106040060-3c4322aaecda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
                   alt="olive-tatiane-Im-Ez-F9-B91-Mk-unsplash-2"
                 />
-                <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-white">
-                  Men&apos;
+                <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-gray-200 rounded-lg">
+                  Men&apos; s
                 </button>
                 <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-white bg-opacity-50"></div>
               </div>
             </div>
-          </div>
-        </div>
-      <section className="">
-        <div className="mx-auto max-w-md sm:max-w-lg md:max-w-screen-xl">
-          <div className="px-4 py-4 md:px-6 md:py-12 lg:px-20">
-            <h1 className="text-center text-3xl font-semibold text-gray-800 lg:text-4xl">
-              Our Best Selling Collection
-            </h1>
-
-            <div className="mt-8 grid grid-cols-1 gap-6 md:mt-10 md:grid-cols-3 lg:gap-8">
-              <article className="bg-slate-50 p-8">
-                <div className="">
-                  <h2 className="text-xl text-gray-600">Mens &apos; Scotch</h2>
-                  <p className="mt-2 text-xl font-semibold text-gray-800"></p>
-                </div>
-                <div className="mt-8 flex items-center justify-center md:mt-24">
-                  <img
-                    className=""
-                    src="https://lzd-img-global.slatic.net/g/p/2988a6c53252186aa62dbd84545a5554.jpg_720x720q80.jpg"
-                    alt=""
-                  />
-                </div>
-              </article>
-              <article className="bg-slate-50 p-8">
-                <div className="">
-                  <h2 className="text-xl text-gray-600">Mens&apos; Red</h2>
-                  <p className="mt-2 text-xl font-semibold text-gray-800"></p>
-                </div>
-                <div className="mt-8 flex items-center justify-center md:mt-24">
-                  <img
-                    className=""
-                    src="https://lzd-img-global.slatic.net/g/p/2988a6c53252186aa62dbd84545a5554.jpg_720x720q80.jpg"
-                    alt=""
-                  />
-                </div>
-              </article>
-              <article className="bg-slate-50 p-8">
-                <div className="">
-                  <h2 className="text-xl text-gray-600">Mens&apos; Punk</h2>
-                  <p className="mt-2 text-xl font-semibold text-gray-800"></p>
-                </div>
-                <div className="mt-8 flex items-center justify-center md:mt-24">
-                  <img
-                    src="https://lzd-img-global.slatic.net/g/p/2988a6c53252186aa62dbd84545a5554.jpg_720x720q80.jpg"
-                    alt=""
-                  />
-                </div>
-              </article>
-            </div>
-
-            <div className="mt-4 grid grid-cols-1 gap-5 md:mt-6 md:grid-cols-2 md:gap-6 lg:mt-8 lg:gap-8">
-              <article className="bg-slate-50 p-8">
-                <div>
-                  <h2 className="text-xl text-gray-600">Mens&apos; Black</h2>
-                  <p className="mt-2 text-xl font-semibold text-gray-800"></p>
-                </div>
-                <div className="mt-28 flex items-center justify-center md:mt-3">
-                  <img
-                    src="https://lzd-img-global.slatic.net/g/p/2988a6c53252186aa62dbd84545a5554.jpg_720x720q80.jpg"
-                    alt=""
-                  />
-                </div>
-              </article>
-              <article className="bg-slate-50 p-8">
-                <div>
-                  <h2 className="text-xl text-gray-600">Womens &apos; Brown</h2>
-                  <p className="mt-2 text-xl font-semibold text-gray-800"></p>
-                </div>
-                <div className="mt-28 flex items-center justify-center md:mt-1">
-                  <img
-                    src="https://lzd-img-global.slatic.net/g/p/2988a6c53252186aa62dbd84545a5554.jpg_720x720q80.jpg"
-                    alt=""
-                  />
-                </div>
-              </article>
+            <div className="relative group hidden md:flex justify-center items-center h-full w-full mt-4 md:mt-8 lg:hidden">
+              <img
+                className="object-center object-cover h-full w-full hidden md:block"
+                src="https://images.unsplash.com/photo-1606105961732-6332674f4ee6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                alt="Photo by Tyrell James on Unsplash"
+              />
+              <img
+                className="object-center object-cover h-full w-full sm:hidden"
+                src="https://i.pinimg.com/236x/80/33/18/803318ed61b44f69843712e17f7a72ac.jpg"
+                alt="olive-tatiane-Im-Ez-F9-B91-Mk-unsplash-2"
+              />
+              <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-white">
+                Men&apos;
+              </button>
+              <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-white bg-opacity-50"></div>
             </div>
           </div>
         </div>
-      </section>
-      <section className="relative bg-blueGray-50 py-2">
+      </div>
+      <div className="container mx-auto mt-8">
+        <h1 className="text-center font-bold text-3xl my-10 text-gray-800">
+          Best Clothes
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid gap-4">
+            <div>
+              <img
+                className="h-auto max-w-full"
+                src="https://images.unsplash.com/photo-1598243572731-54cf830091c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80"
+                alt="Image 2"
+              />
+            </div>
+            <div>
+              <img
+                className="h-auto max-w-full"
+                src="https://images.unsplash.com/photo-1494389715136-ee2a925f8a0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                alt="Image 3"
+              />
+            </div>
+            <div>
+              <img
+                className="h-auto max-w-full"
+                src="https://images.unsplash.com/photo-1566787944388-18391bbc0c1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80"
+                alt="Image 2"
+              />
+            </div>
+            <div>
+              <img
+                className="h-auto max-w-full"
+                src="https://images.unsplash.com/photo-1572335283689-5845ffb6ab14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80"
+                alt="Image 3"
+              />
+            </div>
+          </div>
+          <div className="grid gap-4">
+            <div>
+              <img
+                className="h-auto max-w-full"
+                src="https://images.unsplash.com/photo-1566787944388-18391bbc0c1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80"
+                alt="Image 2"
+              />
+            </div>
+            <div>
+              <img
+                className="h-auto max-w-full"
+                src="https://images.unsplash.com/photo-1543457625-e5d4636c0094?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                alt="Image 3"
+              />
+            </div>
+            <div>
+              <img
+                className="h-auto max-w-full"
+                src="https://images.unsplash.com/photo-1567650807609-c610c4a46026?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=465&q=80"
+                alt="Image 3"
+              />
+            </div>
+            <div>
+              <img
+                className="h-auto max-w-full"
+                src="https://images.unsplash.com/photo-1530679703238-74961c0d1639?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                alt="Image 3"
+              />
+            </div>
+            <div>
+              <img
+                className="h-auto max-w-full"
+                src="https://images.unsplash.com/photo-1566787944388-18391bbc0c1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80"
+                alt="Image 3"
+              />
+            </div>
+          </div>
+          <div className="grid gap-4">
+            <div>
+              <img
+                className="h-auto max-w-full"
+                src="https://res.cloudinary.com/duzubfidk/image/upload/v1702307958/ecommerce/kaos%20oversized%20wanita%20lengan%20panjang%20jumbo%20kaos%20polos%20tebal%2024s/Utama_rb6ddm.jpg"
+              />
+            </div>
+            <div>
+              <img
+                className="h-auto max-w-full"
+                src="https://res.cloudinary.com/duzubfidk/image/upload/v1702302103/ecommerce/SWEPO%20Hoodie%20Jumper%20Hope/Utama_px8gua.jpg"
+                alt="Image 3"
+              />
+            </div>
+            <div>
+              <img
+                className="h-auto max-w-full"
+                src="https://res.cloudinary.com/dnntarxri/image/upload/v1702352073/E%20COMMERCE/Pria/Kemeja%20Hitam%20Polos%20Lengan%20Pendek%20%20Baju%20Cowok%20Slimfit/Hitam_fbvs5s.jpg"
+                alt="Image 3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <section className="relative bg-blueGray-50 py-2 mt-10">
         <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
@@ -279,7 +298,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="items-center my-5 mx-2 sm:mx-8 max-w-screen-2xl px-4 gap-4 md:flex xl:px-10 xl:gap-12 bg-gradient-to-l from-blue-500 to-blue-700 py-14 rounded-xl">
+      <section className="items-center my-5 mx-2 sm:mx-8 max-w-screen-2xl px-4 gap-4 md:flex xl:px-10 xl:gap-12 bg-gradient-to-l from-emerald-500 to-emerald-700 py-14 rounded-xl">
         <div className="flex-1 space-y-4 text-center md:text-left">
           <h1 className="text-2xl text-gray-100 font-semibold lg:text-3xl">
             Get notified when we launch new products
@@ -294,9 +313,9 @@ const Home = () => {
             <input
               type="email"
               placeholder="Enter e-mail"
-              className="text-gray-500 w-full p-2 rounded-md border outline-none focus:border-blue-800"
+              className="text-gray-500 w-full p-2 rounded-md border outline-none focus:border-emerald-800"
             />
-            <button className="w-full mt-3 px-5 py-2 rounded-md text-white bg-blue-400 hover:bg-blue-600 outline-none shadow-md focus:shadow-none focus:ring-2 ring-offset-2 ring-indigo-600 sm:mt-0 sm:ml-3 sm:w-auto">
+            <button className="w-full mt-3 px-5 py-2 rounded-md text-white bg-emerald-400 hover:bg-emerald-600 outline-none shadow-md focus:shadow-none focus:ring-2 ring-offset-2 ring-emerald-600 sm:mt-0 sm:ml-3 sm:w-auto">
               Subscribe
             </button>
           </form>

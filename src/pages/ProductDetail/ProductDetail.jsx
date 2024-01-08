@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [quantity, setQuantity] = useState(1);
   const [variant, setVariant] = useState({ color: "", size: "" });
 
   const [currentImage, setCurrentImage] = useState("");
@@ -29,7 +28,6 @@ const ProductDetail = () => {
     const bodyParameters = {
       productId: id,
       variant: variant,
-      quantity: quantity,
     };
     try {
       await axios.post(
@@ -202,34 +200,6 @@ const ProductDetail = () => {
                     </p>
                   </label>
                 ))}
-            </div>
-            <h2 className="mt-8 text-base text-gray-900">Quantity</h2>
-            <div className="mt-3 flex select-none flex-wrap items-center gap-1">
-              <div className="custom-number-input h-10 w-40">
-                <div className="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1">
-                  <button
-                    data-action="decrement"
-                    className="bg-white text-gray-700 hover:text-gray-900 h-full w-20 rounded-l cursor-pointer border border-black"
-                    onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}
-                  >
-                    <span className="m-auto text-2xl font-thin  ">−</span>
-                  </button>
-                  <input
-                    type="number"
-                    className="focus:outline-none text-center w-full bg-white font-semibold text-md hover:text-black focus:text-black md:text-basecursor-default flex items-center text-gray-700 border border-black"
-                    name="custom-input-number"
-                    value={quantity}
-                    onChange={(e) => setQuantity(Number(e.target.value))}
-                  />
-                  <button
-                    data-action="increment"
-                    className="bg-white  text-gray-700 hover:text-gray-900 h-full w-20 rounded-r cursor-pointer border border-black"
-                    onClick={() => setQuantity(quantity + 1)}
-                  >
-                    <span className="m-auto text-2xl font-thin">+</span>
-                  </button>
-                </div>
-              </div>
             </div>
             <div className="mt-10 flex flex-col items-center justify-between space-y-4 border-t border-b py-4 sm:flex-row sm:space-y-0">
               <div className="flex items-end">

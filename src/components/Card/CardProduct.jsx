@@ -140,7 +140,7 @@ const ProductComponent = ({ product }) => {
       <div className="p-4 flex flex-col justify-between flex-grow">
         <div>
           <p className="text-sm text-gray-500 mb-2 relative">
-            Category : {product.category}
+            Kategori : {product.category}
             <button
               type="button"
               onClick={(event) => handleWishlist(event)}

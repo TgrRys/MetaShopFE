@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <div className="flex flex-col min-h-0 mt-20">
-      <footer className="bg-gradient-to-b from-blue-600 to-blue-800 py-8 mt-auto relative">
+      <footer className="bg-gradient-to-b from-emerald-600 to-emerald-800 py-8 mt-auto relative">
         <div className="absolute top-0 -left-10 m-4">
-          <div className="w-28 h-28 rounded-full bg-white bg-opacity-30 backdrop-blur-md"></div>
+          <div className="w-14 h-14 sm:w-28 sm:h-28 rounded-full bg-white bg-opacity-30 backdrop-blur-md"></div>
         </div>
         <div className="absolute bottom-32 right-0 md:right-16 m-4">
           <div className="w-12 h-12 rounded-full bg-white bg-opacity-30 backdrop-blur-md"></div>
@@ -11,18 +13,18 @@ const Footer = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col">
             <div className="py-8 text-center rounded-md mb-4 max-w-2xl mx-auto">
-              <h2 className="text-4xl lg:text-5xl text-white font-bold mb-4">
+              <h2 className="text-2xl mb-2 sm:mb-4   sm:text-5xl text-white font-bold ">
                 Let&apos;s join us and buy product now!
               </h2>
               <p className="mb-8 px-16 text-gray-200">
                 We are an ecommerce website that sells clothes for men&apos;s, women&apos;s, and kids&apos;s. Make sure you buy our product now!
               </p>
-              <a
-                href="#"
-                className="bg-white text-blue-500 text-lg font-semibold py-2 px-4 rounded inline-block"
+              <Link
+              to="/auth"
+                className="bg-white text-emerald-500 text-lg font-semibold py-2 px-4 rounded inline-block"
               >
                 Join and Buy Now &rarr;
-              </a>
+              </Link>
             </div>
 
             <div className="border-t border-gray-400 my-6"></div>
@@ -36,7 +38,7 @@ const Footer = () => {
                 <div className="flex -mx-2">
                   <a
                     href="#"
-                    className="mx-2 text-white transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                    className="mx-2 text-white transition-colors duration-300 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400"
                     aria-label="Instagram"
                   >
                     <svg
@@ -50,7 +52,7 @@ const Footer = () => {
 
                   <a
                     href="#"
-                    className="mx-2 text-white transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                    className="mx-2 text-white transition-colors duration-300 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400"
                     aria-label="Facebook"
                   >
                     <svg
@@ -65,7 +67,7 @@ const Footer = () => {
 
                   <a
                     href="#"
-                    className="mx-2 text-white transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                    className="mx-2 text-white transition-colors duration-300 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400"
                     aria-label="Twitter"
                   >
                     <svg

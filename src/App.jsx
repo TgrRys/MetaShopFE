@@ -14,6 +14,10 @@ import Profile from "./pages/Profile/Profile";
 import { ProductProvider } from "./contexts/ProductProvider";
 import Wishlist from "./pages/Wishlist/Wishlist";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
+import CheckoutDetail from "./pages/CheckoutDetail/CheckoutDetail"; 
+import Payment from "./pages/Payment/Payment";
+import CartPage from "./pages/Cart";
+import HistoryTransaction from "./pages/HistoryTransaction/HistoryTransaction";
 
 function Layout({ children }) {
   const location = useLocation();
@@ -84,6 +88,38 @@ function App() {
             element={
               <Layout>
                 <Wishlist />
+              </Layout>
+            }
+          />
+          <Route
+            path="/cart" 
+            element={
+              <Layout>
+                <CartPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/orders" 
+            element={
+              <Layout>
+                <CheckoutDetail />
+              </Layout>
+            }
+          />
+           <Route
+            path="/riwayat-transaksi" 
+            element={
+              <Layout>
+               <HistoryTransaction />
+              </Layout>
+            }
+          />
+          <Route
+            path="/payment/:id"
+            element={
+              <Layout>
+                <Payment />
               </Layout>
             }
           />
